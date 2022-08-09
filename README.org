@@ -1,3 +1,4 @@
 * Master the coding interview: data structures + algorithms
 
 *** 3. Big O
+*** 4. How to solve coding problems
