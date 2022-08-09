@@ -27,4 +27,4 @@ everyone = [
 ]
 
 large = ["nemo" for i in range(100000)]
-find_nemo(large)
+find_nemo(large)  # => O(n) Linear Time

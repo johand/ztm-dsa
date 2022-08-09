@@ -15,4 +15,4 @@ nemo = ['nemo']
 everyone = %w[dory bruce marlin nemo gill bloat nigel squirt darla hank]
 large = Array.new(100_000, 'nemo')
 
-find_nemo(large)
+find_nemo(large) # => O(n) Linear Time

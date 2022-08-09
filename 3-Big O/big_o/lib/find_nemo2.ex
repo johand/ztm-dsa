@@ -11,6 +11,7 @@ defmodule FindNemo2 do
   end
 end
 
+# => O(n) Linear Time
 # nemo = ["nemo"]
 # everyone = ~w(dory bruce marlin nemo gill bloat nigel squirt darla hank)
 # FindNemo2.find(everyone)

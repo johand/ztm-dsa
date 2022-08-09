@@ -25,4 +25,4 @@ const everyone = [
 ];
 
 const large = new Array(100000).fill('nemo');
-findNemo(large);
+findNemo(large); // O(n) Linear Time
