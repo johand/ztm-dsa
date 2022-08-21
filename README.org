@@ -3,3 +3,4 @@
 *** 3. Big O
 *** 4. How to solve coding problems
 *** 6. Data structures: arrays
+*** 7. Data structures: hash tables
