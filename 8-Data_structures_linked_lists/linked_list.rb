@@ -22,9 +22,17 @@ class LinkedList
     @tail = new_node
     @length += 1
   end
+
+  def prepend(value)
+    new_node = Node.new(value)
+    new_node.next = @head
+    @head = new_node
+    @length += 1
+  end
 end
 
 my_linked_list = LinkedList.new(10)
 my_linked_list.append(5)
 my_linked_list.append(16)
+my_linked_list.prepend(1)
 p my_linked_list
