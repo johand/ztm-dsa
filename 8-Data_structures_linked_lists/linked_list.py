@@ -10,6 +10,21 @@ class LinkedList:
         self.tail = self.head
         self.length = 1
 
+    def __iter__(self):
+        node = self.head
+        while node is not None:
+            yield node
+            node = node.next
+
+    def append(self, value):
+        new_node = Node(value)
+        self.tail.next = new_node
+        self.tail = new_node
+        self.length += 1
+
 
 my_linked_list = LinkedList(10)
-print(vars(my_linked_list))
+my_linked_list.append(5)
+my_linked_list.append(16)
+for n in my_linked_list:
+    print(vars(n))

@@ -16,8 +16,15 @@ class LinkedList
     @length = 1
   end
 
-  def append(value); end
+  def append(value)
+    new_node = Node.new(value)
+    @tail.next = new_node
+    @tail = new_node
+    @length += 1
+  end
 end
 
 my_linked_list = LinkedList.new(10)
+my_linked_list.append(5)
+my_linked_list.append(16)
 p my_linked_list
