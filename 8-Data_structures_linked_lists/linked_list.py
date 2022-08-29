@@ -29,14 +29,14 @@ class LinkedList:
         self.length += 1
 
     def print_list(self):
-        list = []
+        lst = []
         current_node = self.head
 
         while current_node is not None:
-            list.append(current_node.value)
+            lst.append(current_node.value)
             current_node = current_node.next
 
-        return list
+        return lst
 
     def insert(self, index, value):
         if index >= self.length:
@@ -62,14 +62,33 @@ class LinkedList:
 
         return current_node
 
+    def remove(self, index):
+        if index > self.length:
+            print("Index not found")
+            return
 
-my_linked_list = LinkedList(10)
-my_linked_list.append(5)
-my_linked_list.append(16)
-my_linked_list.prepend(1)
-print(my_linked_list.print_list())
-my_linked_list.insert(2, 99)
-my_linked_list.insert(20, 88)
-for n in my_linked_list:
+        if index == 0:
+            new_head = self.head = self.head.next
+            self.length -= 1
+            return new_head
+
+        current_node = self.traverse_to_index(index - 1)
+        current_node.next = current_node.next.next
+        self.length -= 1
+
+
+ll = LinkedList(10)
+ll.append(5)
+ll.append(16)
+ll.prepend(1)
+print(ll.print_list())
+ll.insert(2, 99)
+ll.insert(20, 88)
+for n in ll:
     print(vars(n))
-print(my_linked_list.print_list())
+print(f"Length: {ll.length}")
+ll.remove(2)
+ll.remove(2)
+ll.remove(0)
+ll.remove(4)
+print(ll.print_list())

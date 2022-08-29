@@ -7,11 +7,7 @@ class Node {
 
 class LinkedList {
   constructor(value) {
-    this.head = {
-      value: value,
-      next: null,
-    };
-
+    this.head = new Node(value);
     this.tail = this.head;
     this.length = 1;
   }
@@ -52,10 +48,10 @@ class LinkedList {
     }
 
     const newNode = new Node(value);
-    const current_node = this.traverseToIndex(index - 1);
-    const next_node = current_node.next;
-    current_node.next = newNode;
-    newNode.next = next_node;
+    const currentNode = this.traverseToIndex(index - 1);
+    const nextNode = currentNode.next;
+    currentNode.next = newNode;
+    newNode.next = nextNode;
     this.length++;
   }
 
@@ -70,14 +66,40 @@ class LinkedList {
 
     return currentNode;
   }
+
+  remove(index) {
+    if (index > this.length) {
+      console.log('Index not found');
+      return;
+    }
+
+    if (index === 0) {
+      this.head = this.head.next;
+      this.length--;
+      return;
+    }
+
+    const currentNode = this.traverseToIndex(index - 1);
+
+    if (currentNode.next.next === null) {
+      this.tail = currentNode;
+    }
+
+    currentNode.next = currentNode.next.next;
+    this.length--;
+  }
 }
 
-const myLinkedList = new LinkedList(10);
-myLinkedList.append(5);
-myLinkedList.append(16);
-myLinkedList.prepend(1);
-console.log(myLinkedList.printList());
-myLinkedList.insert(2, 99);
-myLinkedList.insert(20, 88);
-console.log(myLinkedList);
-console.log(myLinkedList.printList());
+const ll = new LinkedList(10);
+ll.append(5);
+ll.append(16);
+ll.prepend(1);
+console.log(ll.printList());
+ll.insert(2, 99);
+ll.insert(20, 88);
+console.log(ll);
+ll.remove(2);
+ll.remove(2);
+ll.remove(0);
+ll.remove(4);
+console.log(ll.printList());

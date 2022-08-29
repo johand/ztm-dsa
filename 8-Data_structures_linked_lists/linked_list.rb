@@ -67,19 +67,34 @@ class LinkedList
   end
 
   def remove(index)
-    return @head = @head.next if index.zero?
+    if index > @length
+      puts 'Index not found'
+      return
+    end
+
+    if index.zero?
+      @head = @head.next
+      @length -= 1
+      return
+    end
 
     current_node = traverse_to_index(index - 1)
+    @tail = current_node if current_node.next.next.nil?
     current_node.next = current_node.next.next
+    @length -= 1
   end
 end
 
-my_linked_list = LinkedList.new(10)
-my_linked_list.append(5)
-my_linked_list.append(16)
-my_linked_list.prepend(1)
-p my_linked_list.print_list
-my_linked_list.insert(2, 99)
-my_linked_list.insert(20, 88)
-p my_linked_list
-p my_linked_list.print_list
+ll = LinkedList.new(10)
+ll.append(5)
+ll.append(16)
+ll.prepend(1)
+p ll.print_list
+ll.insert(2, 99)
+ll.insert(20, 88)
+p ll
+ll.remove(2)
+ll.remove(2)
+ll.remove(0)
+ll.remove(4)
+p ll.print_list
