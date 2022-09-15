@@ -4,3 +4,4 @@
 *** 4. How to solve coding problems
 *** 6. Data structures: arrays
 *** 7. Data structures: hash tables
+*** 8. Data strucrures: linked lists
