@@ -83,6 +83,24 @@ class LinkedList
     current_node.next = current_node.next.next
     @length -= 1
   end
+
+  def reverse
+    return @head unless @head.next
+
+    prev = nil
+    current = @head
+    next_node = @head.next
+
+    while next_node
+      next_node = current.next
+      current.next = prev
+      prev = current
+      current = next_node
+    end
+
+    @head = prev
+    print_list
+  end
 end
 
 ll = LinkedList.new(10)
@@ -98,3 +116,4 @@ ll.remove(2)
 ll.remove(0)
 ll.remove(4)
 p ll.print_list
+p ll.reverse

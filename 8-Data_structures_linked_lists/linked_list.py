@@ -76,6 +76,23 @@ class LinkedList:
         current_node.next = current_node.next.next
         self.length -= 1
 
+    def reverse(self):
+        if self.head.next is None:
+            return self.head
+
+        prev = None
+        current = self.head
+        next_node = self.head.next
+
+        while next_node:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+
+        self.head = prev
+        return self.print_list()
+
 
 ll = LinkedList(10)
 ll.append(5)
@@ -92,3 +109,4 @@ ll.remove(2)
 ll.remove(0)
 ll.remove(4)
 print(ll.print_list())
+print(ll.reverse())

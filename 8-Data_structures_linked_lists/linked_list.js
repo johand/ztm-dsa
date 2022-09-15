@@ -88,6 +88,26 @@ class LinkedList {
     currentNode.next = currentNode.next.next;
     this.length--;
   }
+
+  reverse() {
+    if (!this.head.next) {
+      return this.head;
+    }
+
+    let prev = null;
+    let current = this.head;
+    let nextNode = this.head.next;
+
+    while (nextNode) {
+      nextNode = current.next;
+      current.next = prev;
+      prev = current;
+      current = nextNode;
+    }
+
+    this.head = prev;
+    return this.printList();
+  }
 }
 
 const ll = new LinkedList(10);
@@ -103,3 +123,4 @@ ll.remove(2);
 ll.remove(0);
 ll.remove(4);
 console.log(ll.printList());
+console.log(ll.reverse());
