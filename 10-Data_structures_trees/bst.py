@@ -46,6 +46,22 @@ class Bst:
 
                     current_node = current_node.right
 
+    def lookup(self, value):
+        if self.root is None:
+            return False
+
+        current_node = self.root
+
+        while current_node:
+            if value < current_node.value:
+                current_node = current_node.left
+            elif value > current_node.value:
+                current_node = current_node.right
+            elif value == current_node.value:
+                return vars(current_node)
+
+        return False
+
     def pre_order_t(self, node, res=[]):
         if node is not None:
             res.append(node.value)
@@ -62,4 +78,5 @@ tree.insert(20)
 tree.insert(170)
 tree.insert(15)
 tree.insert(1)
+print(tree.lookup(170))
 print(tree.pre_order_t(tree.root))

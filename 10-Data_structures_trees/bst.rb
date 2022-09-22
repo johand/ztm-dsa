@@ -42,6 +42,24 @@ class Bst
     end
   end
 
+  def lookup(value)
+    return false if @root.nil?
+
+    current_node = @root
+
+    while current_node
+      if value < current_node.value
+        current_node = current_node.left
+      elsif value > current_node.value
+        current_node = current_node.right
+      elsif value == current_node.value
+        return current_node
+      end
+    end
+
+    false
+  end
+
   def pre_order_t(node, res = [])
     return if node.nil?
 
@@ -60,5 +78,6 @@ tree.insert(20)
 tree.insert(170)
 tree.insert(15)
 tree.insert(1)
+p tree.lookup(170)
 p tree
 p tree.pre_order_t(tree.root)
