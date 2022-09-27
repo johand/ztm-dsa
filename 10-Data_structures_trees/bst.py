@@ -15,11 +15,10 @@ class Bst:
             if node.left is not None:
                 yield from node.left
                 node = node.left
-                # return
+
             if node.right is not None:
                 yield node.right
                 node = node.right
-                # return
 
     def insert(self, value):
         new_node = Node(value)
@@ -69,6 +68,38 @@ class Bst:
             self.pre_order_t(node.right)
             return res
 
+    def remove(self, value):
+        return self.__remove_n(self.root, value)
+
+    def __find_min(self, node):
+        current_node = node
+
+        while current_node.left:
+            current_node = current_node.left
+
+        return current_node
+
+    def __remove_n(self, node, value):
+        if node is None:
+            return node
+
+        if value < node.value:
+            node.left = self.__remove_n(node.left, value)
+        elif value > node.value:
+            node.right = self.__remove_n(node.right, value)
+        else:
+            if node.left is None:
+                return node.right
+
+            if node.right is None:
+                return node.left
+
+            min = self.__find_min(node.right)
+            node.value = min.value
+            node.right = self.__remove_n(node.right, min.value)
+
+        return node
+
 
 tree = Bst()
 tree.insert(9)
@@ -79,4 +110,5 @@ tree.insert(170)
 tree.insert(15)
 tree.insert(1)
 print(tree.lookup(170))
+tree.remove(170)
 print(tree.pre_order_t(tree.root))

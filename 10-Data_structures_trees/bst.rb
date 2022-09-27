@@ -68,6 +68,38 @@ class Bst
     pre_order_t(node.right, res)
     res
   end
+
+  def remove(value)
+    remove_n(@root, value)
+  end
+
+  private
+
+  def find_min(node)
+    current_node = node
+    current_node = current_node.left while current_node.left
+
+    current_node
+  end
+
+  def remove_n(node, value)
+    return node if node.nil?
+
+    if value < node.value
+      node.left = remove_n(node.left, value)
+    elsif value > node.value
+      node.right = remove_n(node.right, value)
+    else
+      return node.right if node.left.nil?
+      return node.left if node.right.nil?
+
+      min = find_min(node.right)
+      node.value = min.value
+      node.right = remove_n(node.right, min.value)
+    end
+
+    node
+  end
 end
 
 tree = Bst.new
@@ -79,5 +111,6 @@ tree.insert(170)
 tree.insert(15)
 tree.insert(1)
 p tree.lookup(170)
+p tree.remove(170)
 p tree
 p tree.pre_order_t(tree.root)
