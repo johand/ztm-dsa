@@ -6,3 +6,4 @@
 - Data structures: Hash tables
 - Data structures: Linked lists
 - Data structures: Trees
+- Data structures: Graphs
