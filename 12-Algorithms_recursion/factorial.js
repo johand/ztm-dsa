@@ -1,6 +1,7 @@
 // Write two functions that finds the factorial of any number. One should use
 // recursive, the other should just use a for loop
 
+// O(n)
 function findFactorialRecursive(number) {
   if (number === 0) return 1;
 
@@ -11,6 +12,7 @@ function findFactorialRecursive(number) {
 
 console.log(findFactorialRecursive(5));
 
+// O(n)
 // function findFactorialIterative(number) {
 //   let answer = 1;
 //
