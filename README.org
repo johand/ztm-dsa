@@ -8,3 +8,4 @@
 - Data structures: Trees
 - Data structures: Graphs
 - Algorithms: Recursion
+- Algorithms: Sorting
