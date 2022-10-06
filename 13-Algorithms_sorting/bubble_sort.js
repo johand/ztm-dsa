@@ -1,5 +1,3 @@
-const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
-
 const bubbleSort = arr => {
   const length = arr.length;
 
@@ -13,7 +11,9 @@ const bubbleSort = arr => {
       }
     }
   }
+
+  return arr;
 };
 
-bubbleSort(numbers);
-console.log(numbers);
+const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+console.log(bubbleSort(numbers));
