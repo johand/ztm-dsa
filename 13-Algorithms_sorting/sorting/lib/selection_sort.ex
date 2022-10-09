@@ -1,7 +1,8 @@
 defmodule SelectionSort do
-  def sort(lst) when length(lst) < 2, do: lst
+  def sort([]), do: []
+  def sort([x]), do: [x]
   def sort(lst) when not is_list(lst), do: nil
-  def sort(lst) when is_list(lst), do: sort(lst, [])
+  def sort(lst), do: sort(lst, [])
   def sort([], acc), do: acc
 
   def sort(lst, acc) do

@@ -1,5 +1,6 @@
 defmodule InsertionSort do
-  def sort(lst) when length(lst) < 2, do: lst
+  def sort([]), do: []
+  def sort([x]), do: [x]
   def sort(lst) when not is_list(lst), do: nil
   def sort([h | t]), do: do_sort([h], t)
 
