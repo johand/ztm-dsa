@@ -89,6 +89,21 @@ class BreadthFirstSearch:
 
         return result
 
+    def bfs_r(self, queue, result):
+        if not queue:
+            return result
+
+        current_node = queue.pop(0)
+        result.append(current_node.value)
+
+        if current_node.left:
+            queue.append(current_node.left)
+
+        if current_node.right:
+            queue.append(current_node.right)
+
+        return self.bfs_r(queue, result)
+
     def __find_min(self, node):
         current_node = node
 
@@ -130,3 +145,4 @@ tree.insert(1)
 print(tree.lookup(170))
 print(tree.pre_order_t(tree.root))
 print(tree.bfs())
+print(tree.bfs_r([tree.root], []))

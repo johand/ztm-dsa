@@ -90,6 +90,18 @@ class BreadthFirstSearch
     result
   end
 
+  def bfs_r(queue = [@root], result = [])
+    return result if queue.empty?
+
+    current_node = queue.shift
+    result << current_node.value
+
+    queue << current_node.left if current_node.left
+    queue << current_node.right if current_node.right
+
+    bfs_r(queue, result)
+  end
+
   private
 
   def find_min(node)
@@ -131,3 +143,4 @@ p tree.lookup(170)
 p tree
 p tree.pre_order_t(tree.root)
 p tree.bfs
+p tree.bfs_r

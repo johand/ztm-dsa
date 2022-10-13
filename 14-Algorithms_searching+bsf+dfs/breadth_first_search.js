@@ -86,6 +86,23 @@ class BreadthFirstSearch {
     return result;
   }
 
+  bfsR(queue = [this.root], result = []) {
+    if (!queue.length) return result;
+
+    const currentNode = queue.shift();
+    result.push(currentNode.value);
+
+    if (currentNode.left) {
+      queue.push(currentNode.left);
+    }
+
+    if (currentNode.right) {
+      queue.push(currentNode.right);
+    }
+
+    return this.bfsR(queue, result);
+  }
+
   #findMin(node) {
     let currentNode = node;
     while (currentNode.left) currentNode = currentNode.left;
@@ -123,6 +140,7 @@ tree.insert(1);
 console.log(tree.lookup(170));
 console.log(JSON.stringify(traverse(tree.root)));
 console.log(tree.bfs());
+console.log(tree.bfsR());
 
 function traverse(node) {
   const tree = { value: node.value };
