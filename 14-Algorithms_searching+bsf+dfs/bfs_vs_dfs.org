@@ -1,0 +1,19 @@
+** BFS vs DFS
+
+1. If you know a solution is not far from the root of the tree
+  *a:* BFS
+
+2. If the tree is very deep and solutions are rare
+  *a:* BFS (DFS will take long time)
+
+3. If the tree is very wide
+  *a:* DFS (BFS will need too much memory)
+
+4. If solutions are frequent but located deep in the tree
+  *a:* DFS
+
+5. Determining whether a path exists between two nodes
+  *a:* DFS
+
+6. Finding the shortest path
+  *a:* BFS

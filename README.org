@@ -9,3 +9,4 @@
 - Data structures: Graphs
 - Algorithms: Recursion
 - Algorithms: Sorting
+- Algorithms: Searching + BFS + DFS
