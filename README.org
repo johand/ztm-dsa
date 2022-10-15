@@ -10,3 +10,4 @@
 - Algorithms: Recursion
 - Algorithms: Sorting
 - Algorithms: Searching + BFS + DFS
+- Algorithms: Dynamic programming
