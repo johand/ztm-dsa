@@ -5,13 +5,8 @@ const mergeSortedArrays = (array1, array2) => {
   let i = 1;
   let j = 1;
 
-  if (array1.length === 0) {
-    return array2;
-  }
-
-  if (array2.length === 0) {
-    return array1;
-  }
+  if (array1.length === 0) return array2;
+  if (array2.length === 0) return array1;
 
   while (array1Item || arrat2Item) {
     if (arrat2Item === undefined || array1Item < arrat2Item) {

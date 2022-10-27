@@ -2,13 +2,13 @@
 // recursive, the other should just use a for loop
 
 // O(n)
-function findFactorialRecursive(number) {
+const findFactorialRecursive = number => {
   if (number === 0) return 1;
 
   if (number > 0) {
     return number * findFactorialRecursive(number - 1);
   }
-}
+};
 
 console.log(findFactorialRecursive(5));
 
