@@ -39,13 +39,8 @@ class LinkedList {
   }
 
   insert(index, value) {
-    if (index >= this.length) {
-      return this.append(value);
-    }
-
-    if (index === 0) {
-      return this.prepend(value);
-    }
+    if (index >= this.length) return this.append(value);
+    if (index === 0) return this.prepend(value);
 
     const newNode = new Node(value);
     const currentNode = this.traverseToIndex(index - 1);
@@ -90,9 +85,7 @@ class LinkedList {
   }
 
   reverse() {
-    if (!this.head.next) {
-      return this.head;
-    }
+    if (!this.head.next) return this.head;
 
     let prev = null;
     let current = this.head;

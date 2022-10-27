@@ -1,4 +1,4 @@
-function containsCommonItem(arr1, arr2) {
+const containsCommonItem = (arr1, arr2) => {
   // Loop through first array and create object where properties === items in the
   // array
   let map = {};
@@ -19,7 +19,7 @@ function containsCommonItem(arr1, arr2) {
   }
 
   return false;
-}
+};
 
 // O(a + b) Time Complexity
 const array1 = ['a', 'b', 'c', 'x'];
@@ -29,8 +29,8 @@ const result = containsCommonItem(array1, array2);
 console.log(result);
 
 // function containsCommonItem2(arr1, arr2) {
-//   return arr1.some(item => arr2.include(item));
+//   return arr1.some(item => arr2.includes(item));
 // }
 //
-// const result = containsCommonItem(array1, array2);
+// const result = containsCommonItem2(array1, array2);
 // console.log(result);

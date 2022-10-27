@@ -4,9 +4,7 @@ class Stack {
   }
 
   peek() {
-    if (this.array.length === 0) {
-      return null;
-    }
+    if (this.array.length === 0) return null;
 
     return this.array[this.array.length - 1];
   }

@@ -17,10 +17,12 @@ class Graph {
 
   showConnections() {
     const allNodes = Object.keys(this.adjancentList);
+
     for (let node of allNodes) {
       let nodeConnections = this.adjancentList[node];
       let connections = '';
       let vertex;
+
       for (vertex of nodeConnections) {
         connections += vertex + ' ';
       }
